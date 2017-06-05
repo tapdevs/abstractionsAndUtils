@@ -30,7 +30,7 @@ abstract class BaseFragment : Fragment() {
         return view
     }
 
-    abstract fun getBindingView(inflater: LayoutInflater, fragmentLayout: Int, container: ViewGroup, b: Boolean): View
+    abstract fun getBindingView(inflater: LayoutInflater, fragmentLayout: Int, container: ViewGroup, b: Boolean): View?
 
 
     /**

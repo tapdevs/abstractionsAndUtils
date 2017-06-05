@@ -24,23 +24,22 @@ class NetworkReachabilityReceiver : BroadcastReceiver() {
 
     fun getReachability(context: Context): NetworkStatus {
         val connectivityManager = context.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        AppConstants.networkStatus = NetworkStatus.networkStatusNotReachable
-
-        if (connectivityManager != null) {
+        AbstractionOrUtilsConstants.networkStatus = NetworkStatus.networkStatusNotReachable
+        connectivityManager?.let {
             val networkInfo = connectivityManager.activeNetworkInfo
             if (networkInfo != null) {
                 if (networkInfo.isConnected && networkInfo.isAvailable) {
                     if (networkInfo.type == ConnectivityManager.TYPE_WIFI) {
-                        AppConstants.networkStatus = NetworkStatus.networkStatusReachableViaWiFi
+                        AbstractionOrUtilsConstants.networkStatus =  NetworkStatus.networkStatusReachableViaWiFi
                     } else if (networkInfo.type == ConnectivityManager.TYPE_WIMAX || networkInfo.type == ConnectivityManager.TYPE_MOBILE) {
-                        AppConstants.networkStatus = NetworkStatus.networkStatusReachableViaWWAN
+                        AbstractionOrUtilsConstants.networkStatus =  NetworkStatus.networkStatusReachableViaWWAN
                     } else {
-                        AppConstants.networkStatus = NetworkStatus.networkStatusReachableViaWWAN
+                        AbstractionOrUtilsConstants.networkStatus =  NetworkStatus.networkStatusReachableViaWWAN
                     }
                 }
             }
         }
-        return AppConstants.networkStatus!!
+        return AbstractionOrUtilsConstants.networkStatus ;
     }
 
     override fun onReceive(context: Context, intent: Intent) {
