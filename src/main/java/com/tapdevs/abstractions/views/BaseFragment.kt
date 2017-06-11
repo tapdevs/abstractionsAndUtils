@@ -24,7 +24,7 @@ abstract class BaseFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         var view: View? = getBindingView(inflater!!, fragmentLayout, container!!, false)
         if (view == null) {
-            view = inflater!!.inflate(fragmentLayout, container, false)
+            view = inflater.inflate(fragmentLayout, container, false)
         }
 
         return view

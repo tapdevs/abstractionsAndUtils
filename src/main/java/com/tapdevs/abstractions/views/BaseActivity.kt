@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.tapdevs.abstractions.eventHandlers.*
+import com.tapdevs.abstractions.utils.AbstractionOrUtilsConstants
 import com.tapdevs.abstractions.utils.NetworkReachabilityReceiver
+import com.tapdevs.abstractions.utils.NetworkUtils
 import com.tapdevs.abstractions.utils.SnackBarUtils
 import org.json.JSONObject
 
@@ -21,9 +23,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        registerNetworkReachabilityListners()
         super.onCreate(savedInstanceState)
         injectDependencies()
-        registerNetworkReachabilityListners()
     }
 
 
@@ -60,6 +62,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun registerNetworkReachabilityListners() {
         event = Event()
         val filter = IntentFilter()
+        AbstractionOrUtilsConstants.networkStatus= NetworkUtils.getReachability(this)
         filter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
         filter.addAction("android.net.wifi.WIFI_STATE_CHANGED")
         networkReachabilityReceiver = NetworkReachabilityReceiver()
@@ -73,6 +76,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
                 if (networkStatus == networkNotReachableStatus) {
                     SnackBarUtils.showSnackBarOnNoInternet(context!!)
+                }else{
+
                 }
             }
         })
@@ -83,6 +88,12 @@ abstract class BaseActivity : AppCompatActivity() {
             networkReachabilityListner!!.close()
             networkReachabilityListner = null
         }
+    }
+
+    override fun onDestroy() {
+        unregisterNetworkReachabilityListners()
+        super.onDestroy()
+
     }
 
 
