@@ -14,10 +14,5 @@
 
     </application>
 
-    <receiver android:name="com.tapdevs.abstractions.utils.NetworkReachabilityReceiver" android:enabled="true">
-        <intent-filter>
-            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-        </intent-filter>
-    </receiver>
 
 </manifest>
