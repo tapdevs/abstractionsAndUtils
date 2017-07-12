@@ -1,11 +1,10 @@
-package com.mettle_studio.youtoggle.abstractions.utils
+package com.tapdevs.abstractions.utils
 
 import android.content.Context
 import android.os.Environment
-import com.mettle_studio.youtoggle.abstractions.R
-import com.mettle_studio.youtoggle.abstractions.utils.DateUtil.getCurrentDate
-import com.mettle_studio.youtoggle.abstractions.utils.DateUtil.getDateAndTimeFromMillis
-import com.mettle_studio.youtoggle.abstractions.utils.TXTFileUtil.writeTextToFile
+import com.tapdevs.abstractions.utils.DateUtil.getCurrentDate
+import com.tapdevs.abstractions.utils.DateUtil.getDateAndTimeFromMillis
+import com.tapdevs.abstractions.R
 import timber.log.Timber
 import java.io.*
 
@@ -21,7 +20,7 @@ object TXTFileUtil{
             putDataInSDFile(activity!!, text)
     }
 
-    fun writeTextToFile(activity: Context?, title:String,text: String) : String {
+    fun writeTextToFile(activity: Context?, title:String, text: String) : String {
 
         createFolderIfnotExist(activity,title)
         return putDataInSDFile(activity!!,title, text)
@@ -41,7 +40,7 @@ object TXTFileUtil{
         }
     }
 
-    fun createFolderIfnotExist(activity: Context?,title:String) {
+    fun createFolderIfnotExist(activity: Context?, title:String) {
         if (activity == null) {
             return
         }
@@ -56,7 +55,7 @@ object TXTFileUtil{
 
     }
 
-    fun putDataInSDFile(activity: Context,title: String, text: String) : String {
+    fun putDataInSDFile(activity: Context, title: String, text: String) : String {
 
         // Find the root of the external storage.
         // See http://developer.android.com/guide/topics/data/data-  storage.html#filesExternal

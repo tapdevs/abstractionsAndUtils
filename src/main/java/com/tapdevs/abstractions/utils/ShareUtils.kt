@@ -1,4 +1,4 @@
-package com.mettle_studio.youtoggle.abstractions.utils
+package com.tapdevs.abstractions.utils
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,7 @@ import android.net.Uri
 
 object ShareUtils{
 
-    fun shareImageAndText(context: Context,text:String,  imagePath: String){
+    fun shareImageAndText(context: Context, text:String, imagePath: String){
         val shareIntent = Intent()
         shareIntent.action = Intent.ACTION_SEND
         shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello")

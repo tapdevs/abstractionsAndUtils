@@ -1,4 +1,4 @@
-package com.mettle_studio.youtoggle.abstractions.adapterHelpers
+package com.tapdevs.abstractions.adapterHelpers
 
 /**
  * Created by ${ Jan Shair } on 05/07/2017.

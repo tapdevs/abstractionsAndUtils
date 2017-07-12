@@ -1,4 +1,4 @@
-package com.mettle_studio.youtoggle.enums
+package com.tapdevs.abstractions.enums
 
 /**
  * Created by ${ Jan Shair } on 27/06/2017.

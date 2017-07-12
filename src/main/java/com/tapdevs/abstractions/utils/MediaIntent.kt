@@ -1,9 +1,7 @@
-package com.mettle_studio.youtoggle.abstractions.utils
+package com.tapdevs.abstractions.utils
 
-import com.mettle_studio.youtoggle.enums.FileType
+import com.tapdevs.abstractions.enums.FileType
 import java.net.URLConnection
-import java.net.URLConnection.guessContentTypeFromName
-
 
 
 /**
@@ -24,10 +22,10 @@ object MediaIntent{
     }
 
     fun isVideoOrPhoto(path: String) : Int{
-        if(MediaIntent.isImageFile(path)){
-            return  FileType.PHOTO
-        }else if(MediaIntent.isVideoFile(path)){
-            return  FileType.VIDEO
+        if(isImageFile(path)){
+            return FileType.PHOTO
+        }else if(isVideoFile(path)){
+            return FileType.VIDEO
         }
 
         return FileType.NO_FILE

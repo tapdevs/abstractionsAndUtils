@@ -1,4 +1,4 @@
-package com.mettle_studio.youtoggle.abstractions.utils
+package com.tapdevs.abstractions.utils
 
 import android.content.Context
 import android.location.Address
@@ -13,7 +13,7 @@ import java.io.IOException
 
 object AddressUtil{
 
-    fun getAddress(context: Context,location: Location) : String{
+    fun getAddress(context: Context, location: Location) : String{
         try {
             location.let {
                 val geoCoder = Geocoder(context)
