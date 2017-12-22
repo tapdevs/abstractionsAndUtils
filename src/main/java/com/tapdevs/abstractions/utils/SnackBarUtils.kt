@@ -32,7 +32,7 @@ object SnackBarUtils {
 
         // Changing action button text color
         val sbView = snackbar.view
-        val textView = sbView.findViewById(android.support.design.R.id.snackbar_text) as TextView
+        val textView = sbView.findViewById<TextView>(android.support.design.R.id.snackbar_text) as TextView
         textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_signal_wifi_off, 0, 0, 0)
         textView.compoundDrawablePadding = context.resources.getDimensionPixelOffset(R.dimen.snackbar_icon_padding)
 

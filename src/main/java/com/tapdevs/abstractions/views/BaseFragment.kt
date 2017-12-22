@@ -20,9 +20,8 @@ abstract class BaseFragment : Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        var view: View? = getBindingView(inflater!!, fragmentLayout, container!!, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var view: View? = getBindingView(inflater, fragmentLayout, container!!, false)
         if (view == null) {
             view = inflater.inflate(fragmentLayout, container, false)
         }
@@ -38,7 +37,7 @@ abstract class BaseFragment : Fragment() {
      */
     abstract fun initialize()
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialize()
     }
