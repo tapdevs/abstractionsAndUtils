@@ -2,8 +2,6 @@ package com.tapdevs.abstractions.utils
 
 import android.content.Context
 import android.os.Environment
-import com.tapdevs.abstractions.utils.DateUtil.getCurrentDate
-import com.tapdevs.abstractions.utils.DateUtil.getDateAndTimeFromMillis
 import com.tapdevs.abstractions.R
 import timber.log.Timber
 import java.io.*
@@ -62,7 +60,7 @@ object TXTFileUtil{
 
         // See http://stackoverflow.com/questions/3551821/android-write-to-sd-card-folder
         val dir = File("${Environment.getExternalStorageDirectory()}/${activity.getString(R.string.app_name)}/$title")
-        val filePath : String = activity.getString(R.string.app_name).decapitalize().replace(" ","_") + getCurrentDate() + ".txt"
+        val filePath : String = activity.getString(R.string.app_name).decapitalize().replace(" ","_") + DateUtil().getCurrentDate() + ".txt"
         val file = File(dir, filePath)
         if (!dir.exists()) {
             if (dir.mkdir()) {
@@ -96,7 +94,7 @@ object TXTFileUtil{
         var lengthInMbs = false
         val dir = File("${Environment.getExternalStorageDirectory()}/${activity.getString(R.string.app_name)}/logs")
 
-        val file = File(dir, activity.getString(R.string.app_name).decapitalize().replace(" ","_") + getCurrentDate() + ".txt")
+        val file = File(dir, activity.getString(R.string.app_name).decapitalize().replace(" ","_") + DateUtil().getCurrentDate() + ".txt")
         if (!dir.exists()) {
             if (dir.mkdir()) {
                 Timber.d("Directory is Created.")
@@ -126,7 +124,7 @@ object TXTFileUtil{
                 f = FileOutputStream(file, true)
             }
             val pw = PrintWriter(f)
-            pw.print(getDateAndTimeFromMillis(System.currentTimeMillis()) + "> " + getClassName(activity) + " ")
+            pw.print(DateUtil().getDateAndTimeFromMillis(System.currentTimeMillis()) + "> " + getClassName(activity) + " ")
             pw.println(text)
 
             println(text)
