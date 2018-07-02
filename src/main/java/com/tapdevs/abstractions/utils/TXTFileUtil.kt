@@ -124,7 +124,7 @@ object TXTFileUtil{
                 f = FileOutputStream(file, true)
             }
             val pw = PrintWriter(f)
-            pw.print(DateUtil().getDateAndTimeFromMillis(System.currentTimeMillis()) + "> " + getClassName(activity) + " ")
+            pw.print(DateUtil().getDateTimeStringFromMillis(System.currentTimeMillis()) + "> " + getClassName(activity) + " ")
             pw.println(text)
 
             println(text)

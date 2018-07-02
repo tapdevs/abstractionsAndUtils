@@ -37,8 +37,8 @@ class DateUtil{
 
     }
 
-    fun getDateAndTimeFromMillis(currentTimeMillis: Long): String {
-        return ""
-
+    fun getDateTimeStringFromMillis(currentTimeMillis: Long): String {
+        val date = SimpleDateFormat(mDateFormat)
+        return date.format(Date(currentTimeMillis))
     }
 }

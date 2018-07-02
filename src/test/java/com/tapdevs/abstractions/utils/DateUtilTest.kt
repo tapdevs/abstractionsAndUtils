@@ -13,4 +13,9 @@ class DateUtilTest{
         assertEquals(1486506254000,DateUtil().getMillisFromString("2017-02-07T22:24:14"))
         assertEquals("07 February 2017 22:24",DateUtil().getDateAndTimeFromString("2017-02-07T22:24:14"))
     }
+
+    @Test
+    fun setMills_getDate_Verify() {
+        assertEquals( "2017-02-07T22:24:14",DateUtil().getDateTimeStringFromMillis(1486506254000))
+    }
 }
