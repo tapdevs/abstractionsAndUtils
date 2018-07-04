@@ -24,6 +24,14 @@ class DateUtil{
 
     }
 
+    public fun convertDateStringToCalendatObject(dateStr: String): Calendar {
+        val date : Date = SimpleDateFormat(mDateFormat).parse(dateStr)
+        val calendar : Calendar = Calendar.getInstance()
+        calendar.time= date
+        return calendar
+
+    }
+
     public fun getMillisFromString(input: String) : Long{
 
         val date = SimpleDateFormat(mDateFormat).parse(input)
