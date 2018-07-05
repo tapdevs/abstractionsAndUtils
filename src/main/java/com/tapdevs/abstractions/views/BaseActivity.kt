@@ -50,6 +50,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 val fm = fragmentManager
                 if (fm.backStackEntryCount > 0) {
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    popBackStack()
                 } else {
                     finish()
                 }
@@ -57,6 +58,15 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             else -> return super.onOptionsItemSelected(item)
         }
+    }
+
+    open fun popBackStack(){
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        popBackStack()
     }
 
     private fun registerNetworkReachabilityListners() {

@@ -13,4 +13,9 @@ class NumberUtilsTest {
     fun limitFloatTo2Decimals() {
         assertEquals("2.33",NumberUtils.limitFloatTo2Decimals(2.333333333333f))
     }
+
+    @Test
+    fun setValue_limitFloatTo2DecimalsPoints_Verify() {
+        assertEquals(1.29f,NumberUtils.limitFloatTo2DecimalsPoints(1.293489384902f))
+    }
 }
