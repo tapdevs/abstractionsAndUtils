@@ -30,4 +30,5 @@ object TextCheckers {
         //TODO: Replace this with your own logic
         return password.trim { it <= ' ' }.length > 5
     }
+
 }
