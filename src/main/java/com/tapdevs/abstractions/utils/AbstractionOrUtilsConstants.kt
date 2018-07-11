@@ -11,4 +11,8 @@ object AbstractionOrUtilsConstants {
     //Receiver Statuses
     var networkStatus: NetworkStatus = NetworkStatus.networkStatusNotReachable
 
+
+
+    var BROWSER_ACTIVITY_URL: String = "BROWSER_ACTIVITY_URL"
+
 }
