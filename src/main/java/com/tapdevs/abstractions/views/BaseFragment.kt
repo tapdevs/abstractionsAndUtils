@@ -47,12 +47,13 @@ abstract class BaseFragment : Fragment() {
      * avoid duplicate all the inflate code in every fragment. You only have to return the layout to
      * inflate in this method when extends BaseFragment.
      */
-    protected abstract val fragmentLayout: Int
+    public abstract val fragmentLayout: Int
 
     /**
      * Replace every field annotated using @Inject annotation with the provided dependency specified
      * inside a Dagger module value.
      */
     protected abstract fun injectDependencies()
+
 
 }
