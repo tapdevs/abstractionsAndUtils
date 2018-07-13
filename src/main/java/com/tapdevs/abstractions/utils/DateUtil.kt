@@ -11,7 +11,7 @@ import java.util.*
 class DateUtil{
 
     var mDateFormat: String = "yyyy-MM-dd'T'HH:mm:ss"
-    var uiDateFormat: String = "dd MMMM YYYY HH:mm"
+    var uiDateFormat: String = "dd MMMM yyyy HH:mm"
     constructor()
 
     constructor(dateFormat: String){
