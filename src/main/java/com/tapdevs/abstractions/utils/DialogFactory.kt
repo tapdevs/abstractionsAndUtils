@@ -9,8 +9,10 @@ import android.content.DialogInterface
 import com.tapdevs.abstractions.R
 
 
-object DialogFactory {
+class DialogFactory(val title: String , val message: String , val positiveButton:String, val negitiveButton : String) {
 
+
+    constructor() : this("","","","")
     fun createSimpleOkErrorDialog(context: Context, message: String): Dialog {
         val alertDialog = AlertDialog.Builder(context)
                 .setTitle(context.getString(R.string.dialog_error_title))
