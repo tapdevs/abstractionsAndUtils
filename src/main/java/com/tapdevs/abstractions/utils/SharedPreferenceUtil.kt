@@ -36,6 +36,16 @@ class SharedPreferenceUtil(application: Application) {
         return value!!
     }
 
+    fun getStringPreference(key: String,defaultValue: String): String {
+        var value: String? = null
+
+        if (preferences != null) {
+            value = preferences.getString(key, defaultValue)
+        }
+        return value!!
+    }
+
+
     /**
      * Helper method to write a String value to [SharedPreferences].
 

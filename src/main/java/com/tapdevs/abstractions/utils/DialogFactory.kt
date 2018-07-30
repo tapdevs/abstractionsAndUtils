@@ -13,7 +13,7 @@ class DialogFactory(val title: String , val message: String , val positiveButton
 
 
     constructor() : this("","","","")
-    fun createSimpleOkErrorDialog(context: Context, message: String): Dialog {
+    fun createSimpleOkErrorDialog(context: Context): Dialog {
         val alertDialog = AlertDialog.Builder(context)
                 .setTitle(context.getString(R.string.dialog_error_title))
                 .setMessage(message)
@@ -30,6 +30,15 @@ class DialogFactory(val title: String , val message: String , val positiveButton
         rateDialog.setButton(AlertDialog.BUTTON_NEGATIVE, context.getString(R.string.dialog_negative_button_text), onClickListener)
         rateDialog.setButton(AlertDialog.BUTTON_NEUTRAL, context.getString(R.string.dialog_neutral_button_text), onClickListener)
         return rateDialog
+    }
+
+    fun createCustomDialog(context: Context, postiveClickListener: (dialog: DialogInterface?, which: Int) -> Unit, negitiveClickListener: (dialog: DialogInterface?, which: Int) -> Unit): Dialog {
+        val alertDialog = AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveButton, postiveClickListener)
+                .setNegativeButton(negitiveButton, negitiveClickListener)
+        return alertDialog.create()
     }
 
 }
