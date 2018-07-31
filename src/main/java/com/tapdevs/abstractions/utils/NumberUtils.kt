@@ -21,4 +21,18 @@ object NumberUtils {
         return decimalFormat.format(float).toFloat()
 
     }
+
+    fun containsNumberOrDigits(value: String) : Boolean{
+        if(value.equals(".")){
+            return false
+        }
+        try{
+            val float : Float = value.toFloat()
+            return true
+        }catch (exception: Exception){
+            return false
+        }
+
+        return false
+    }
 }

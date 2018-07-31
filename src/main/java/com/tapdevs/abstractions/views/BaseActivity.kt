@@ -20,14 +20,18 @@ abstract class BaseActivity : AppCompatActivity() {
     private var networkReachabilityListner: IEventHandler? = null
     private var event: IEvent? = null
     private var context: Activity? = this
-    var enableInternetBroadCastReceiver : Boolean = false
+    var enableInternetBroadCastReceiver : Boolean = true
+
+    lateinit var snackBarUtils: SnackBarUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        injectDependencies()
+        snackBarUtils = SnackBarUtils(this)
         if(enableInternetBroadCastReceiver) {
             registerNetworkReachabilityListners()
         }
-        super.onCreate(savedInstanceState)
-        injectDependencies()
+
     }
 
 
@@ -86,11 +90,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 val networkStatus = data.opt(NetworkReachabilityReceiver.networkStatusKey) as String
                 val networkNotReachableStatus = NetworkStatus.networkStatusNotReachable.toString()
 
-//                if (networkStatus == networkNotReachableStatus) {
-////                    SnackBarUtils.showSnackBarOnNoInternet(context!!)
-//                }else{
-//
-//                }
+                if (networkStatus == networkNotReachableStatus) {
+                    snackBarUtils.showSnackBarOnNoInternet()
+                }else{
+                    snackBarUtils.hideSnackBar()
+                }
             }
         })
     }
@@ -104,6 +108,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun enableInternetConnectionBroadcastReceiver(enable: Boolean){
         if(enable){
+            enableInternetBroadCastReceiver = enable
             registerNetworkReachabilityListners()
         }
 
